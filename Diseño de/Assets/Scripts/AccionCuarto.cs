@@ -1,6 +1,9 @@
 using System;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.AI;
+using NavMeshPlus.Components;
+
 
 public enum TIPOS_CUARTO
 {
@@ -27,6 +30,7 @@ public enum TIPOS_CUARTO
 public class AccionCuarto : MonoBehaviour
 {
     [SerializeField] TIPOS_CUARTO cuarto_actual;
+    //[SerializeField] NavMeshSurface navMesh;
 
 
     public void GenerarCuartoCorrespondiente(Transform padre = null)
@@ -93,6 +97,8 @@ public class AccionCuarto : MonoBehaviour
             col.isTrigger = true;
             col.size = new Vector2(18, 10);
         }
+        //navMesh.BuildNavMeshAsync();
+
     }
 
     private void OnDrawGizmos()
