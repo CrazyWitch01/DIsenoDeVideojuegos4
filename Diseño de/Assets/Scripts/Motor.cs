@@ -1,6 +1,7 @@
-using UnityEngine;
+using Unity.Cinemachine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEngine;
 
 
 public class Motor : MonoBehaviour
@@ -9,19 +10,19 @@ public class Motor : MonoBehaviour
     [MenuItem("Herramientas/Generar Cuartos")]
     public static void GenerarCuartos()
     {
-        // Asegura que el contenedor existe o lo crea
         GameObject contenedor = GameObject.Find("Cuartos");
         if (contenedor == null)
         {
             contenedor = new GameObject("Cuartos");
         }
 
+
         // Encuentra todos los objetos con AccionCuarto
         AccionCuarto[] cuartos = GameObject.FindObjectsOfType<AccionCuarto>();
 
         foreach (var cuarto in cuartos)
         {
-            cuarto.GenerarCuartoCorrespondiente(contenedor.transform); 
+            cuarto.GenerarCuartoCorrespondiente(contenedor.transform);
         }
     }
 
