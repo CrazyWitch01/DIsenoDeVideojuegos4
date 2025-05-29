@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 3482353415767788337}
   m_Layer: 0
   m_Name: PuertaR
-  m_TagString: Untagged
+  m_TagString: Puertas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,6 +241,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.16111714, y: 0.2741481}
   m_EdgeRadius: 0
+--- !u!1 &1434200280131609572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2976680237271815493}
+  m_Layer: 0
+  m_Name: EnemiesSpawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2976680237271815493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434200280131609572}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4838667344915697744}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1599924236849924050
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +643,7 @@ GameObject:
   - component: {fileID: 4119307352578065721}
   m_Layer: 0
   m_Name: PuertaL
-  m_TagString: Untagged
+  m_TagString: Puertas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1660,6 +1691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2976680237271815493}
   - {fileID: 5585277377441727710}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1676,6 +1708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDuration: 0.5
+  enemiesSpawners: {fileID: 1434200280131609572}
 --- !u!1 &7486229905755329342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,7 +1722,7 @@ GameObject:
   - component: {fileID: 8550424737749762753}
   m_Layer: 0
   m_Name: PuertaT
-  m_TagString: Untagged
+  m_TagString: Puertas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1957,7 +1990,7 @@ GameObject:
   - component: {fileID: 2857321290245610118}
   m_Layer: 0
   m_Name: PuertaD
-  m_TagString: Untagged
+  m_TagString: Puertas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

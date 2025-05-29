@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3482353415767788337}
   m_Layer: 0
   m_Name: PuertaR
-  m_TagString: Untagged
+  m_TagString: Puertas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 4119307352578065721}
   m_Layer: 0
   m_Name: PuertaL
-  m_TagString: Untagged
+  m_TagString: Puertas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1215,6 +1215,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7410727, y: 0.38601097}
   m_EdgeRadius: 0
+--- !u!1 &6545460574133808772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7956652066608204138}
+  m_Layer: 0
+  m_Name: EnemiesSpawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7956652066608204138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6545460574133808772}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 423812676411796579}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6560079691918913910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3530565286629245476}
   - component: {fileID: 188004455244001573}
+  - component: {fileID: 5267200865931902494}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1438,6 +1470,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5267200865931902494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7293679766847956156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7486229905755329342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,7 +1499,7 @@ GameObject:
   - component: {fileID: 8550424737749762753}
   m_Layer: 0
   m_Name: PuertaT
-  m_TagString: Untagged
+  m_TagString: Puertas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1802,7 +1850,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 423812676411796579}
-  - component: {fileID: 5922147178388850211}
   - component: {fileID: 5579914061788263267}
   m_Layer: 0
   m_Name: ContenedorCuartoRight
@@ -1824,25 +1871,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7956652066608204138}
   - {fileID: 3530565286629245476}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5922147178388850211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8526998715621649402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 0
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!114 &5579914061788263267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,6 +1888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDuration: 0.5
+  enemiesSpawners: {fileID: 6545460574133808772}
 --- !u!1 &8608413418992308549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,7 +1902,7 @@ GameObject:
   - component: {fileID: 2857321290245610118}
   m_Layer: 0
   m_Name: PuertaD
-  m_TagString: Untagged
+  m_TagString: Puertas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

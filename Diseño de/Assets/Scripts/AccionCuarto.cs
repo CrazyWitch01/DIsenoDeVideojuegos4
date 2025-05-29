@@ -95,7 +95,7 @@ public class AccionCuarto : MonoBehaviour
 
             BoxCollider2D col = instancia.AddComponent<BoxCollider2D>();
             col.isTrigger = true;
-            col.size = new Vector2(18, 10);
+            col.size = new Vector2(16.5f, 9);
         }
         //navMesh.BuildNavMeshAsync();
 
