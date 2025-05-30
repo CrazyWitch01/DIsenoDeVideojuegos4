@@ -744,11 +744,11 @@ GameObject:
   - component: {fileID: 1669030627889740706}
   m_Layer: 0
   m_Name: EnemiesSpawners
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1669030627889740706
 Transform:
   m_ObjectHideFlags: 0

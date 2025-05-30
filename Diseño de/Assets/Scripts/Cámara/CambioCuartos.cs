@@ -20,7 +20,15 @@ public class CambioCuartos : MonoBehaviour
             }
         }
     }
+    void Start()
+    {
+        GameObject[] spawners = GameObject.FindGameObjectsWithTag("EnemySpawner");
 
+        foreach (GameObject spawner in spawners)
+        {
+            spawner.SetActive(false);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
