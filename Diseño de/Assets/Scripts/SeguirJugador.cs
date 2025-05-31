@@ -34,4 +34,11 @@ public class SeguirJugador : MonoBehaviour
             transform.position = newAgentPosition;
         }
     }
+
+    
+    void LateUpdate()
+    {
+        transform.rotation = Quaternion.identity; 
+    }
+
 }

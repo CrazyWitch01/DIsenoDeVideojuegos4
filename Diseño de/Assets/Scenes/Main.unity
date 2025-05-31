@@ -11039,6 +11039,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4062243345027054749, guid: 12cc27d5fa5c05f48822b9d8d7ffa5f0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8048698729908939138, guid: 12cc27d5fa5c05f48822b9d8d7ffa5f0, type: 3}
       propertyPath: m_Name
       value: PH ENEMIES (1)
