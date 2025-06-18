@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: -7831308108335150476}
   - component: {fileID: 4062243345027054749}
   - component: {fileID: 8730638438405025026}
+  - component: {fileID: 4542926240946393234}
   m_Layer: 0
   m_Name: Cura
   m_TagString: Enemies
@@ -191,7 +192,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -218,3 +219,22 @@ MonoBehaviour:
   enemy: {fileID: 0}
   player: {fileID: 0}
   fixedZPosition: 1
+--- !u!114 &4542926240946393234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8048698729908939138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef0c14e7b6d13a479e494eaf19f86a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radioDeteccion: 5
+  capaJugador:
+    serializedVersion: 2
+    m_Bits: 8
+  player: {fileID: 0}
+  jugadorDetectado: 0
+  balaEnemigo: {fileID: 0}

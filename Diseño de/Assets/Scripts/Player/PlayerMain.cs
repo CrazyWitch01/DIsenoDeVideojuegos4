@@ -7,6 +7,10 @@ public class PlayerMain : MonoBehaviour
     [Header("Movimiento")]
     public float velocidad = 5f;
 
+    public int vidaJugador;
+
+
+
     private Rigidbody2D rb;
     private Vector2 inputMovimiento;
     private InputSystem_Actions input;
@@ -47,6 +51,15 @@ public class PlayerMain : MonoBehaviour
         else if (inputMovimiento.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    public void PerderVida(int Valor)
+    {
+        vidaJugador -= Valor;
+        if (vidaJugador <= 0)
+        {
+            Destroy(this);
         }
     }
 }
