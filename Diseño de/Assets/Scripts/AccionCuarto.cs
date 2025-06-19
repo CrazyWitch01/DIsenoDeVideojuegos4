@@ -25,6 +25,24 @@ public enum TIPOS_CUARTO
     CUARTO_LUR,
     CUARTO_LUD,
     CUARTO_URD,
+
+    CUARTO_UP2,
+    CUARTO_DOWN2,
+    CUARTO_LEFT2,
+    CUARTO_RIGHT2,
+    CUARTO_DOUBLE_VERTICAL2,
+    CUARTO_DOUBLE_HORIZONTAL2,
+    CUARTO_DOWN_RIGHT2,
+    CUARTO_DOWN_LEFT2,
+    CUARTO_TOP_RIGHT2,
+    CUARTO_TOP_LEFT2,
+    CUARTO_ALL2,
+    CUARTO_LRD2,
+    CUARTO_LUR2,
+    CUARTO_LUD2,
+    CUARTO_URD2,
+
+
 }
 
 public class AccionCuarto : MonoBehaviour
@@ -85,6 +103,53 @@ public class AccionCuarto : MonoBehaviour
                 break;
             case TIPOS_CUARTO.CUARTO_URD:
                 prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoURD");
+                break;
+
+            case TIPOS_CUARTO.CUARTO_UP2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoUp2");
+                break;
+            case TIPOS_CUARTO.CUARTO_DOWN2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoDown2");
+                break;
+            
+            case TIPOS_CUARTO.CUARTO_RIGHT2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoRight2");
+                break;
+            case TIPOS_CUARTO.CUARTO_LEFT2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoLeft2");
+                break;
+            case TIPOS_CUARTO.CUARTO_DOUBLE_VERTICAL2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoDoubleVertical2");
+                break;
+            case TIPOS_CUARTO.CUARTO_DOUBLE_HORIZONTAL2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoDoubleHorizontal2");
+                break;
+            case TIPOS_CUARTO.CUARTO_DOWN_RIGHT2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoDownRight2");
+                break;
+            case TIPOS_CUARTO.CUARTO_DOWN_LEFT2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoDownLeft2");
+                break;
+            case TIPOS_CUARTO.CUARTO_TOP_LEFT2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoUpLeft2");
+                break;
+            case TIPOS_CUARTO.CUARTO_TOP_RIGHT2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoUpRight2");
+                break;
+            case TIPOS_CUARTO.CUARTO_ALL2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoAll2");
+                break;
+            case TIPOS_CUARTO.CUARTO_LRD2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoLRD2");
+                break;
+            case TIPOS_CUARTO.CUARTO_LUR2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoLUR2");
+                break;
+            case TIPOS_CUARTO.CUARTO_LUD2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoLUD2");
+                break;
+            case TIPOS_CUARTO.CUARTO_URD2:
+                prefab = Resources.Load<GameObject>("Cuartos/ContenedorCuartoURD2");
                 break;
         }
 
