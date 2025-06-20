@@ -1,22 +1,37 @@
 fileFormatVersion: 2
-guid: 5c2017b56721b8044b14ab8efdba85a7
+guid: b613d97e83b01894496ea5477102709a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8602692667655249957
-    second: Animacion_Monje_0
+      213: 5291881858394707114
+    second: espada_0
   - first:
-      213: 5463598053872351738
-    second: Animacion_Monje_1
+      213: -2385295977381966449
+    second: espada_1
   - first:
-      213: 5902363426452999521
-    second: Animacion_Monje_2
+      213: 2710006762120569694
+    second: espada_2
   - first:
-      213: -6237440045385376535
-    second: Animacion_Monje_3
+      213: -7491847504815012426
+    second: espada_3
   - first:
-      213: -6816190268920335870
-    second: Animacion_Monje_4
+      213: -6359172431678713021
+    second: espada_4
+  - first:
+      213: 9112500402954770145
+    second: espada_5
+  - first:
+      213: 921431132686423859
+    second: espada_6
+  - first:
+      213: -4382383276887193476
+    second: espada_7
+  - first:
+      213: 7153351184023990858
+    second: espada_8
+  - first:
+      213: -368773921230578119
+    second: espada_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animacion_Monje_0
+      name: espada_0
       rect:
         serializedVersion: 2
         x: 0
@@ -140,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bdf1d8809981d9880800000000000000
-      internalID: -8602692667655249957
+      spriteID: aa453fa338a807940800000000000000
+      internalID: 5291881858394707114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion_Monje_1
+      name: espada_1
       rect:
         serializedVersion: 2
         x: 64
@@ -162,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af9b39c8b7992db40800000000000000
-      internalID: 5463598053872351738
+      spriteID: f8dcaf742f9b5eed0800000000000000
+      internalID: -2385295977381966449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion_Monje_2
+      name: espada_2
       rect:
         serializedVersion: 2
         x: 128
@@ -184,14 +199,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16d0df8a34869e150800000000000000
-      internalID: 5902363426452999521
+      spriteID: e536a1bbac0eb9520800000000000000
+      internalID: 2710006762120569694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion_Monje_3
+      name: espada_3
       rect:
         serializedVersion: 2
         x: 192
@@ -206,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ec120b73592079a0800000000000000
-      internalID: -6237440045385376535
+      spriteID: 6b5ca1c436c970890800000000000000
+      internalID: -7491847504815012426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion_Monje_4
+      name: espada_4
       rect:
         serializedVersion: 2
         x: 256
@@ -228,8 +243,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 202778b60170861a0800000000000000
-      internalID: -6816190268920335870
+      spriteID: 3435550ad5eafb7a0800000000000000
+      internalID: -6359172431678713021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: espada_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e619bd16da167e70800000000000000
+      internalID: 9112500402954770145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: espada_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33792c4bbb499cc00800000000000000
+      internalID: 921431132686423859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: espada_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78c687e0a5ae23c0800000000000000
+      internalID: -4382383276887193476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: espada_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42be55700fc54360800000000000000
+      internalID: 7153351184023990858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: espada_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e9f9e821ad1eaf0800000000000000
+      internalID: -368773921230578119
       vertices: []
       indices: 
       edges: []
@@ -238,7 +363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 22a8ab2755b7e004ba4b341be9ca27af
+    spriteID: e976d9d9a977f0041b2032e0cd5c511c
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +373,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Animacion_Monje_0: -8602692667655249957
-      Animacion_Monje_1: 5463598053872351738
-      Animacion_Monje_2: 5902363426452999521
-      Animacion_Monje_3: -6237440045385376535
-      Animacion_Monje_4: -6816190268920335870
+      espada_0: 5291881858394707114
+      espada_1: -2385295977381966449
+      espada_2: 2710006762120569694
+      espada_3: -7491847504815012426
+      espada_4: -6359172431678713021
+      espada_5: 9112500402954770145
+      espada_6: 921431132686423859
+      espada_7: -4382383276887193476
+      espada_8: 7153351184023990858
+      espada_9: -368773921230578119
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

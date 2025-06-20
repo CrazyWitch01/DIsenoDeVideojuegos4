@@ -38,7 +38,10 @@ public class SeguirJugador : MonoBehaviour
     
     void LateUpdate()
     {
-        transform.rotation = Quaternion.identity; 
+        //transform.rotation = Quaternion.identity; esto era para que no girara xd
+        Vector2 direccion = player.position - transform.position;
+        float Ejez = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg -90f; //hace que el angulo de rotacion de z siempre sea mirando al player
+        transform.rotation = Quaternion.Euler(0f, 0f, Ejez); //esto lo aplica
     }
 
 }

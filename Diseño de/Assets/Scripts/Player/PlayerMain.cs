@@ -9,6 +9,8 @@ public class PlayerMain : MonoBehaviour
 
     public int vidaJugador;
 
+    public GameObject Capa;
+    private Animator animatorCapa;
 
 
     private Rigidbody2D rb;
@@ -20,6 +22,7 @@ public class PlayerMain : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         input = new InputSystem_Actions();
+        animatorCapa = Capa.GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -43,15 +46,27 @@ public class PlayerMain : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + inputMovimiento * velocidad * Time.fixedDeltaTime);
-        if (inputMovimiento.x < 0)
+        if (inputMovimiento.x > 0)
         {
           
-            transform.localScale = new Vector3(-1, 1, 1);
+            Capa.transform.rotation = Quaternion.Euler(0,0,-90f);
         }
-        else if (inputMovimiento.x > 0)
+        else if (inputMovimiento.x < 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            Capa.transform.rotation = Quaternion.Euler(0,0,90f);
         }
+        if (inputMovimiento.y > 0)
+        {
+
+            Capa.transform.rotation = Quaternion.Euler(0, 0, 0f);
+        }
+        else if (inputMovimiento.y < 0)
+        {
+            Capa.transform.rotation = Quaternion.Euler(0, 0, 180f);
+        }
+
+        bool IsMoving = inputMovimiento != Vector2.zero;
+        animatorCapa.SetBool("IsMoving", IsMoving);
     }
 
     public void PerderVida(int Valor)

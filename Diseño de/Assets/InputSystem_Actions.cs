@@ -1089,6 +1089,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Ataques"",
+                    ""type"": ""Button"",
+                    ""id"": ""53038d97-83e7-4bd5-b333-0161ddd91dae"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1157,6 +1166,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3ec37d7-3c95-4ff2-95e7-24238873fa41"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Ataques"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4aaf33e-efdc-4693-8888-1a714a0c954e"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Ataques"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1250,6 +1281,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // NewPlayer
         m_NewPlayer = asset.FindActionMap("NewPlayer", throwIfNotFound: true);
         m_NewPlayer_Move = m_NewPlayer.FindAction("Move", throwIfNotFound: true);
+        m_NewPlayer_Ataques = m_NewPlayer.FindAction("Ataques", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1712,6 +1744,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_NewPlayer;
     private List<INewPlayerActions> m_NewPlayerActionsCallbackInterfaces = new List<INewPlayerActions>();
     private readonly InputAction m_NewPlayer_Move;
+    private readonly InputAction m_NewPlayer_Ataques;
     /// <summary>
     /// Provides access to input actions defined in input action map "NewPlayer".
     /// </summary>
@@ -1727,6 +1760,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "NewPlayer/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_NewPlayer_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "NewPlayer/Ataques".
+        /// </summary>
+        public InputAction @Ataques => m_Wrapper.m_NewPlayer_Ataques;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1756,6 +1793,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Ataques.started += instance.OnAtaques;
+            @Ataques.performed += instance.OnAtaques;
+            @Ataques.canceled += instance.OnAtaques;
         }
 
         /// <summary>
@@ -1770,6 +1810,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Ataques.started -= instance.OnAtaques;
+            @Ataques.performed -= instance.OnAtaques;
+            @Ataques.canceled -= instance.OnAtaques;
         }
 
         /// <summary>
@@ -2031,5 +2074,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Ataques" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAtaques(InputAction.CallbackContext context);
     }
 }

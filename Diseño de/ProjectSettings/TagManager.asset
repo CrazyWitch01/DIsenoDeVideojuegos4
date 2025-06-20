@@ -10,6 +10,7 @@ TagManager:
   - PlayerHitbox
   - EnemySpawner
   - Bullets
+  - Espada
   layers:
   - Default
   - TransparentFX
