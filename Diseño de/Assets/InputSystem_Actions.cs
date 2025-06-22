@@ -1098,6 +1098,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Disparo"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a17c281-875a-47e8-bed7-b30386f87ed6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1180,12 +1189,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c4aaf33e-efdc-4693-8888-1a714a0c954e"",
+                    ""id"": ""d2e715eb-599b-49e8-9245-65d1cfca40d2"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Ataques"",
+                    ""action"": ""Disparo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1282,6 +1291,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_NewPlayer = asset.FindActionMap("NewPlayer", throwIfNotFound: true);
         m_NewPlayer_Move = m_NewPlayer.FindAction("Move", throwIfNotFound: true);
         m_NewPlayer_Ataques = m_NewPlayer.FindAction("Ataques", throwIfNotFound: true);
+        m_NewPlayer_Disparo = m_NewPlayer.FindAction("Disparo", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1745,6 +1755,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private List<INewPlayerActions> m_NewPlayerActionsCallbackInterfaces = new List<INewPlayerActions>();
     private readonly InputAction m_NewPlayer_Move;
     private readonly InputAction m_NewPlayer_Ataques;
+    private readonly InputAction m_NewPlayer_Disparo;
     /// <summary>
     /// Provides access to input actions defined in input action map "NewPlayer".
     /// </summary>
@@ -1764,6 +1775,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "NewPlayer/Ataques".
         /// </summary>
         public InputAction @Ataques => m_Wrapper.m_NewPlayer_Ataques;
+        /// <summary>
+        /// Provides access to the underlying input action "NewPlayer/Disparo".
+        /// </summary>
+        public InputAction @Disparo => m_Wrapper.m_NewPlayer_Disparo;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1796,6 +1811,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Ataques.started += instance.OnAtaques;
             @Ataques.performed += instance.OnAtaques;
             @Ataques.canceled += instance.OnAtaques;
+            @Disparo.started += instance.OnDisparo;
+            @Disparo.performed += instance.OnDisparo;
+            @Disparo.canceled += instance.OnDisparo;
         }
 
         /// <summary>
@@ -1813,6 +1831,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Ataques.started -= instance.OnAtaques;
             @Ataques.performed -= instance.OnAtaques;
             @Ataques.canceled -= instance.OnAtaques;
+            @Disparo.started -= instance.OnDisparo;
+            @Disparo.performed -= instance.OnDisparo;
+            @Disparo.canceled -= instance.OnDisparo;
         }
 
         /// <summary>
@@ -2081,5 +2102,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAtaques(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Disparo" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDisparo(InputAction.CallbackContext context);
     }
 }

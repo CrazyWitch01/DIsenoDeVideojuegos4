@@ -8,9 +8,20 @@ public class Ataque : MonoBehaviour
     public GameObject espadaContainer;
     public Animator EspadaAnimator;
     public GameObject Espada;
+    public GameObject Pistola;
 
     public float tiempoEspera = 1.5f;
+    public float DisparoEnMano = 1f;
     private Coroutine DisableEspadaCoroutine;
+    private Coroutine DisableDisparoCoroutine;
+
+
+    //DISPARO
+
+    public GameObject BulletPlayerPrefab;
+    public Transform BalaOrigen;
+    public Transform CabezaRotacion;
+    public float BalaSpeed = 10f;
 
     void Awake()
     {
@@ -20,12 +31,15 @@ public class Ataque : MonoBehaviour
     void OnEnable()
     {
         input.NewPlayer.Enable();
-        input.NewPlayer.Ataques.performed += OnAtaques;
+        input.NewPlayer.Ataques.performed += OnAtaques; //melee
+        input.NewPlayer.Disparo.performed += OnDisparo;//disparo
     }
 
     void OnDisable()
     {
         input.NewPlayer.Ataques.performed -= OnAtaques;
+        input.NewPlayer.Disparo.performed -= OnDisparo;
+
         input.NewPlayer.Disable();
     }
 
@@ -63,4 +77,52 @@ public class Ataque : MonoBehaviour
     {
         Espada.SetActive(false);
     }
+
+    void OnDisparo(InputAction.CallbackContext context)
+    {
+        Pistola.SetActive(true);
+        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+        mouseWorldPos.z = 0;
+
+        Vector2 direccion = (mouseWorldPos - BalaOrigen.position).normalized;
+
+
+        Quaternion rotacion = Quaternion.Euler(0f, 0f, CabezaRotacion.eulerAngles.z);
+        GameObject bala = Instantiate(BulletPlayerPrefab, BalaOrigen.position, rotacion);
+
+        Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
+        rb.linearVelocity = direccion*BalaSpeed;
+
+
+
+
+        if (DisableDisparoCoroutine != null)
+        {
+            StopCoroutine(DisableDisparoCoroutine);
+        }
+
+        DisableDisparoCoroutine = StartCoroutine(DisableDisparoCooldown());
+    }
+
+    private IEnumerator DisableDisparoCooldown()
+    {
+        yield return new WaitForSeconds(DisparoEnMano);
+
+        if (Pistola != null)
+        {
+            Pistola.SetActive(false);
+        }
+    }
+
+    public void ActivarPistola()
+    {
+        Pistola.SetActive(true);
+    }
+
+    public void DesactivarPistola()
+    {
+        Pistola.SetActive(false);
+    }
 }
+
