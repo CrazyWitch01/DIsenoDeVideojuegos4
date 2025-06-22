@@ -44,7 +44,7 @@ public class CofreManager : MonoBehaviour
             Instantiate(droppedItem.prefab, itemLayer, Quaternion.identity);
             
         }
-        Debug.Log($"Cofre abierto y ha soltado {1} ítems.");
+        Debug.Log("Cofre abierto");
     }
 
     ItemData GetRandomLootItem()

@@ -503,7 +503,7 @@ MonoBehaviour:
   BulletPlayerPrefab: {fileID: 1863548459475576862, guid: 0a6d8725ad8749d46a7f104e344c8c67, type: 3}
   BalaOrigen: {fileID: 23466433498357975}
   CabezaRotacion: {fileID: 9201651439820548306}
-  BalaSpeed: 10
+  BalaSpeed: 12
 --- !u!1 &6145813101242352928
 GameObject:
   m_ObjectHideFlags: 0

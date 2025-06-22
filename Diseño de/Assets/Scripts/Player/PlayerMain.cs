@@ -8,10 +8,13 @@ public class PlayerMain : MonoBehaviour
     public float velocidad = 5f;
 
     public int vidaJugador;
+    public int velJugador;
+    public int atqJugador;
 
     public GameObject Capa;
     private Animator animatorCapa;
 
+    public CameraEffects PostManager;
 
     private Rigidbody2D rb;
     private Vector2 inputMovimiento;
@@ -72,6 +75,10 @@ public class PlayerMain : MonoBehaviour
     public void PerderVida(int Valor)
     {
         vidaJugador -= Valor;
+        if (PostManager != null)
+        {
+            PostManager.ActivarEfectoSangre();
+        }
         if (vidaJugador <= 0)
         {
             //Destroy(this);
