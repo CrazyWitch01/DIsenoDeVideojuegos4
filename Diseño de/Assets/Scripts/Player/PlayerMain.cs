@@ -7,9 +7,16 @@ public class PlayerMain : MonoBehaviour
     [Header("Movimiento")]
     public float velocidad = 5f;
 
+    public PlayerData dataPlayer;
     public int vidaJugador;
-    public int velJugador;
+    public float velJugador;
     public int atqJugador;
+    public int experienciaJugador;
+    
+    private int _lastExp;
+    private int _lastVida;
+    private float _lastVel;
+    private int _lastAtq;
 
     public GameObject Capa;
     private Animator animatorCapa;
@@ -20,7 +27,21 @@ public class PlayerMain : MonoBehaviour
     private Vector2 inputMovimiento;
     private InputSystem_Actions input;
 
+
     // Update is called once per frame
+    void Start()
+    {
+        if (dataPlayer != null)
+        {
+            AplicarDatos(dataPlayer);
+
+            // Guardar valores iniciales
+            _lastVida = dataPlayer.vidaPlayer;
+            _lastVel = dataPlayer.velPlayer;
+            _lastAtq = dataPlayer.atqPlayer;
+        }
+    }
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -84,4 +105,36 @@ public class PlayerMain : MonoBehaviour
             //Destroy(this);
         }
     }
+    void Update()
+    {
+        if (dataPlayer != null)
+        {
+            if (_lastVida != dataPlayer.vidaPlayer ||
+                _lastVel != dataPlayer.velPlayer ||
+                _lastAtq != dataPlayer.atqPlayer ||
+                _lastExp != dataPlayer.experienciaActual)
+            {
+                Debug.Log("Datos cambiaron, se actualiza jugador");
+                AplicarDatos(dataPlayer);
+
+                // Actualizar valores cacheados
+                _lastVida = dataPlayer.vidaPlayer;
+                _lastVel = dataPlayer.velPlayer;
+                _lastAtq = dataPlayer.atqPlayer;
+                _lastExp = dataPlayer.experienciaActual;
+            }
+        }
+    }
+
+    public void AplicarDatos(PlayerData data)
+    {
+       vidaJugador = data.vidaPlayer;
+       velJugador = data.velPlayer;
+       atqJugador = data.atqPlayer;
+       experienciaJugador = data.experienciaActual;
+
+        velocidad = data.velPlayer; // si estás usando `velocidad` para moverse
+
+       Debug.Log("Datos del jugador aplicados desde PlayerData");
+     }
 }

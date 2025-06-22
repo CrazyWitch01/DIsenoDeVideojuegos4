@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 6505881033326881221}
   - component: {fileID: 4565503076278069639}
   m_Layer: 0
-  m_Name: PLACEHOLDER-PlayerHitbox
+  m_Name: PlayerHurtbox
   m_TagString: PlayerHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 1665799535515325849}
   - component: {fileID: 2963004861545983808}
   - component: {fileID: 4687313184317091530}
+  - component: {fileID: 6886027797348753404}
   m_Layer: 3
   m_Name: PlayerController
   m_TagString: Player
@@ -480,8 +481,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
+  dataPlayer: {fileID: 11400000, guid: a3848e0de88eeff4fa7c937213a3f92d, type: 2}
   vidaJugador: 0
+  velJugador: 0
+  atqJugador: 0
   Capa: {fileID: 6145813101242352928}
+  PostManager: {fileID: 0}
 --- !u!114 &4687313184317091530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +509,18 @@ MonoBehaviour:
   BalaOrigen: {fileID: 23466433498357975}
   CabezaRotacion: {fileID: 9201651439820548306}
   BalaSpeed: 12
+--- !u!114 &6886027797348753404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614776252855123503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 514cb7e87d7bf1a43ae47bdb30d6cc21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6145813101242352928
 GameObject:
   m_ObjectHideFlags: 0
