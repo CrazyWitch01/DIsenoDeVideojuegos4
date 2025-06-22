@@ -11,7 +11,7 @@ public class PHENEMIESDEATH : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerHitbox"))
+        if (other.CompareTag("Espada"))
         {
             Destroy(gameObject);
         }

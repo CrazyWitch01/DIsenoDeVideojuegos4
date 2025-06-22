@@ -74,7 +74,7 @@ public class PlayerMain : MonoBehaviour
         vidaJugador -= Valor;
         if (vidaJugador <= 0)
         {
-            Destroy(this);
+            //Destroy(this);
         }
     }
 }
