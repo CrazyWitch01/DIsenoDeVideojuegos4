@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1349abd2327bb45b91af984f5f6d5d, type: 3}
   m_Name: ItemData_PV
   m_EditorClassIdentifier: 
-  nombreItem: "Nuevo \xCDtem"
-  sprite: {fileID: 0}
+  nombreItem: pvBuff
+  sprite: {fileID: 21300000, guid: bb707a08b721eeb46b655090da32dcbf, type: 3}
   prefab: {fileID: 3262048444743416283, guid: 960ad5a96e453ed4daff40cb95d9fc16, type: 3}
   valor: 1

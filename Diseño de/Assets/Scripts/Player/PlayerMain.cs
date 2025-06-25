@@ -11,6 +11,7 @@ public class PlayerMain : MonoBehaviour
     public int vidaJugador;
     public float velJugador;
     public int atqJugador;
+<<<<<<< Updated upstream
     public int experienciaJugador;
     
     private int _lastExp;
@@ -18,15 +19,21 @@ public class PlayerMain : MonoBehaviour
     private float _lastVel;
     private int _lastAtq;
 
+=======
+>>>>>>> Stashed changes
     public GameObject Capa;
+
     private Animator animatorCapa;
-
-    public CameraEffects PostManager;
-
     private Rigidbody2D rb;
     private Vector2 inputMovimiento;
     private InputSystem_Actions input;
 
+<<<<<<< Updated upstream
+=======
+    public CameraEffects PostManager;
+    [SerializeField] PlayerData playerData;
+    [SerializeField] ItemData itemData;
+>>>>>>> Stashed changes
 
     // Update is called once per frame
     void Start()
@@ -93,18 +100,21 @@ public class PlayerMain : MonoBehaviour
         animatorCapa.SetBool("IsMoving", IsMoving);
     }
 
-    public void PerderVida(int Valor)
+    public void PerderVida()
     {
-        vidaJugador -= Valor;
-        if (PostManager != null)
-        {
-            PostManager.ActivarEfectoSangre();
-        }
-        if (vidaJugador <= 0)
+        //Resta vida al jugador
+        playerData.RestarVidaJugador();
+
+        //Activa el efecto de sangre xd
+        PostManager.ActivarEfectoSangre();
+
+        //Verifica la vida para destruir al jugador en caso llegue a 0
+        if (playerData.vidaPlayer <= 0)
         {
             //Destroy(this);
         }
     }
+<<<<<<< Updated upstream
     void Update()
     {
         if (dataPlayer != null)
@@ -137,4 +147,16 @@ public class PlayerMain : MonoBehaviour
 
        Debug.Log("Datos del jugador aplicados desde PlayerData");
      }
+=======
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Item"))
+        {
+            playerData.AumentarVidaJugador();
+            PostManager.ActivarEfectoCura();
+            Destroy(collision.gameObject);
+        }
+    }
+>>>>>>> Stashed changes
 }

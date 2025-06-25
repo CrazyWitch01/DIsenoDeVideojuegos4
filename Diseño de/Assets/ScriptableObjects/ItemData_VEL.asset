@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1349abd2327bb45b91af984f5f6d5d, type: 3}
   m_Name: ItemData_VEL
   m_EditorClassIdentifier: 
-  nombreItem: "Nuevo \xCDtem"
-  sprite: {fileID: 0}
+  nombreItem: velBuff
+  sprite: {fileID: 21300000, guid: 4aaf49131f6fe064bb9202e05e470a97, type: 3}
   prefab: {fileID: 9198278584573258058, guid: 66439fe3eb52de842ba21f234880eb7b, type: 3}
   valor: 1

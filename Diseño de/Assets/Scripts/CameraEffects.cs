@@ -10,6 +10,7 @@ public class CameraEffects : MonoBehaviour
     public float damageBloomIntensity = 5f; // Bloom
     public float damageVignetteIntensity = 0.6f; // Viñeta
     public Color damageVignetteColor = new Color(0.5f, 0f, 0f, 1f); // Color de la viñeta (rojo)
+    public Color healVignetteColor = new Color(0f, 1f, 0f, 1f); // Color de la viñeta al curarse (verde)
 
     public float damageSaturation = 50f;
 
@@ -94,6 +95,32 @@ public class CameraEffects : MonoBehaviour
         {
             colorAdjustments.saturation.value = damageSaturation;
             colorAdjustments.active = true; 
+        }
+
+        isEffectActive = true;
+        effectTimer = 0f;
+    }
+
+    // Llamar a esta función cuando el jugador se cure
+    public void ActivarEfectoCura()
+    {
+        if (globalVolume == null) return;
+
+        if (bloom != null)
+        {
+            bloom.intensity.value = damageBloomIntensity;
+            bloom.active = true;
+        }
+        if (vignette != null)
+        {
+            vignette.intensity.value = 1f;
+            vignette.color.value = healVignetteColor;
+            vignette.active = true;
+        }
+        if (colorAdjustments != null)
+        {
+            colorAdjustments.saturation.value = damageSaturation;
+            colorAdjustments.active = true;
         }
 
         isEffectActive = true;

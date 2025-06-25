@@ -24,7 +24,7 @@ public class Bala : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlayerMain vidaJugador))
         {
-            vidaJugador.PerderVida(dmg);
+            //vidaJugador.PerderVida(dmg);
         }
     }
 }
