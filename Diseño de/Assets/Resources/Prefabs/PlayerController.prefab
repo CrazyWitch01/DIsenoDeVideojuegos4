@@ -487,11 +487,8 @@ MonoBehaviour:
   atqJugador: 0
   Capa: {fileID: 6145813101242352928}
   PostManager: {fileID: 0}
-<<<<<<< Updated upstream
-=======
   playerData: {fileID: 11400000, guid: a3848e0de88eeff4fa7c937213a3f92d, type: 2}
   itemData: {fileID: 11400000, guid: 07fa4599392588741b069e9d1cdabc2b, type: 2}
->>>>>>> Stashed changes
 --- !u!114 &4687313184317091530
 MonoBehaviour:
   m_ObjectHideFlags: 0
