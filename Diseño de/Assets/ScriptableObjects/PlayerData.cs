@@ -27,7 +27,7 @@ public class PlayerData : ScriptableObject
 
     public void AumentarVelJugador()
     {
-        velPlayer++;
+        velPlayer = velPlayer + 3;
         Debug.Log("El jugador ganó velocidad");
     }
 
@@ -46,6 +46,14 @@ public class PlayerData : ScriptableObject
     public void RestarATQJugador()
     {
         atqPlayer--;
+        Debug.Log("El jugador perdió ataque");
+    }
+
+    public void ReiniciarStats()
+    {
+        atqPlayer = 1;
+        velPlayer = 4;
+        vidaPlayer = 2;
         Debug.Log("El jugador perdió ataque");
     }
 }

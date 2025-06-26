@@ -12,6 +12,7 @@ TagManager:
   - Bullets
   - Espada
   - Item
+  - Item2
   layers:
   - Default
   - TransparentFX

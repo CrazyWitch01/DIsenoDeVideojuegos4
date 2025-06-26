@@ -43,6 +43,8 @@ public class PlayerMain : MonoBehaviour
             _lastVel = dataPlayer.velPlayer;
             _lastAtq = dataPlayer.atqPlayer;
         }
+
+        playerData.ReiniciarStats();
     }
 
     void Awake()
@@ -148,9 +150,14 @@ public class PlayerMain : MonoBehaviour
     {
         if (collision.CompareTag("Item"))
         {
-            playerData.AumentarVidaJugador();
-            PostManager.ActivarEfectoCura();
-            Destroy(collision.gameObject);
+               playerData.AumentarVidaJugador();
+               PostManager.ActivarEfectoCura();
+                Destroy(collision.gameObject);
+        } else if (collision.CompareTag("Item2"))
+        {
+                playerData.AumentarVelJugador();
+                PostManager.ActivarEfectoCura();
+                Destroy(collision.gameObject);
         }
     }
 }
