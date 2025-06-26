@@ -9,9 +9,9 @@ public class PlayerData : ScriptableObject
     public int vidaPlayer = 2; // Vida del jugador
     public float velPlayer = 2; // Velocidad de movimiento del jugador
     public int atqPlayer = 1; // Ataque del jugador
-<<<<<<< Updated upstream
+
     public int experienciaActual = 0;
-=======
+
    
     //////////////////////////////////////////////////////////////////////////////////////////////
     public void AumentarVidaJugador()
@@ -48,5 +48,4 @@ public class PlayerData : ScriptableObject
         atqPlayer--;
         Debug.Log("El jugador perdió ataque");
     }
->>>>>>> Stashed changes
 }
