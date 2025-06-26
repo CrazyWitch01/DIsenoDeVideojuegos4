@@ -47,6 +47,7 @@ public class PlayerMain : MonoBehaviour
 
     void Awake()
     {
+        PostManager = Camera.main.GetComponent<CameraEffects>();
         rb = GetComponent<Rigidbody2D>();
         input = new InputSystem_Actions();
         animatorCapa = Capa.GetComponent<Animator>();
