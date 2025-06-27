@@ -7,8 +7,9 @@ public class NavMeshAwake : MonoBehaviour
     private NavMeshSurface navMeshSurface;
     void Awake()
     {
-        navMeshSurface = GetComponent<NavMeshSurface>();
-        navMeshSurface.BuildNavMesh();
+        //navMeshSurface = GetComponent<NavMeshSurface>();
+        //navMeshSurface.BuildNavMesh();
+        gameObject.GetComponent<NavMeshSurface>().enabled = true;
 
 
     }
