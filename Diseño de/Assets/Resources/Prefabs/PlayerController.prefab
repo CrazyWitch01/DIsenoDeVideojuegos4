@@ -398,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabHuella: {fileID: 1792397668219442919, guid: 36e94d45e718bcb46857c02c890a4269, type: 3}
+  PrefabHuellaVeneno: {fileID: 3029973453573681860, guid: 352338f9d28ba4c4d9f4824ed644ffdd, type: 3}
   huellasOffset: 0.4
   CuantasHuellas: 8
   huellasOffsetLateral: 0.2

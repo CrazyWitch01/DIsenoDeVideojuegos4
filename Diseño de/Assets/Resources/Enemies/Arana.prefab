@@ -230,8 +230,8 @@ MonoBehaviour:
   player: {fileID: 0}
   fixedZPosition: 1
   bloodEffectParticlesPrefab:
-  - {fileID: 6579738575627313255, guid: 471e0aaa1f8837e40b78c0f4a619df82, type: 3}
-  - {fileID: 278725042166632605, guid: 92a8d855d8771624eb74d5f3c3a3578a, type: 3}
+  - {fileID: 6579738575627313255, guid: 5aa5f8a2dab2a6c41926451c47910352, type: 3}
+  - {fileID: 278725042166632605, guid: 392c384f6f8306a4db0765f32effc691, type: 3}
 --- !u!212 &1596597245255387017
 SpriteRenderer:
   m_ObjectHideFlags: 0

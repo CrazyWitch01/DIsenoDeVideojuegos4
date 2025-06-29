@@ -3,6 +3,7 @@ using UnityEngine;
 public class HuellasSangre : MonoBehaviour
 {
     public GameObject PrefabHuella;
+    public GameObject PrefabHuellaVeneno;
     public float huellasOffset = 0.4f;
     public int CuantasHuellas = 4;
     public float huellasOffsetLateral = 0.4f;
@@ -12,6 +13,7 @@ public class HuellasSangre : MonoBehaviour
     private int pasoActual= 0;
     private Vector2 ultimaDireccion = Vector2.right;
 
+    private GameObject prefabHuellaActual;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,10 +44,11 @@ public class HuellasSangre : MonoBehaviour
         }
     }
 
-    public void ActivarHuellas()
+    public void ActivarHuellas(GameObject prefab)
     {
         huellasRestantes = CuantasHuellas;
         ultimaPosicion = transform.position;
+        prefabHuellaActual = prefab;
     }
 
     private void ColocarHuella(Vector2 posicion, Vector2 direccion)
@@ -60,7 +63,7 @@ public class HuellasSangre : MonoBehaviour
 
         Quaternion rotacion = Quaternion.LookRotation(Vector3.forward, direccion);
 
-        Instantiate(PrefabHuella, posicionHuella, rotacion);
+        Instantiate(prefabHuellaActual, posicionHuella, rotacion);
 
 
     }
@@ -69,7 +72,12 @@ public class HuellasSangre : MonoBehaviour
     {
         if (collision.CompareTag("BloodStain"))
         {
-            ActivarHuellas();
+            ActivarHuellas(PrefabHuella);
+        }
+
+        if(collision.CompareTag("VenenoStain"))
+        {
+            ActivarHuellas(PrefabHuellaVeneno);
         }
     }
 }
