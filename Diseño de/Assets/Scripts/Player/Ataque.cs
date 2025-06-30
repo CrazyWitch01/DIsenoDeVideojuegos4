@@ -9,6 +9,8 @@ public class Ataque : MonoBehaviour
     public Animator EspadaAnimator;
     public GameObject Espada;
     public GameObject Pistola;
+    public AudioSource AudiosAtaques;
+    public AudioClip[] AudiosEspada;
 
     public float tiempoEspera = 1.5f;
     public float DisparoEnMano = 1f;
@@ -47,8 +49,11 @@ public class Ataque : MonoBehaviour
     {
         espadaContainer.SetActive(true);
         Espada.SetActive(true);
-
+        int index = Random.Range(0,AudiosEspada.Length);
+        AudiosAtaques.clip= AudiosEspada[index];
+        AudiosAtaques.Play();
         EspadaAnimator.SetTrigger("Click");
+
 
         if (DisableEspadaCoroutine != null)
         {

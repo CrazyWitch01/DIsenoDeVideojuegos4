@@ -6,6 +6,8 @@ public class CofreManager : MonoBehaviour
     [Header("Configuración del Loot")]
     [Tooltip("Lista de ítems que este cofre puede soltar, junto con sus probabilidades.")]
     public List<LootItem> possibleLoot = new List<LootItem>();
+    [SerializeField] AudioSource AudioSourceItems;
+    [SerializeField] AudioClip ItemSFX;
 
     private bool hasBeenOpened = false;
 
@@ -16,11 +18,19 @@ public class CofreManager : MonoBehaviour
         [Range(0, 100)]
         public float dropChance = 50; // Probabilidad 0-100%
     }
-
+    private void Start()
+    {
+        AudioSourceItems = GameObject.Find("ItemsSFX").GetComponent<AudioSource>();
+    }
     public void OpenChest()
     {
+        AudioSourceItems.PlayOneShot(ItemSFX);
         if (hasBeenOpened)
         {
+            
+            
+            
+            
             Debug.Log("Cofre abierto :)");
             return;
         }

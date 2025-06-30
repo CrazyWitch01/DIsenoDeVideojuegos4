@@ -98,6 +98,8 @@ MonoBehaviour:
     dropChance: 50
   - item: {fileID: 11400000, guid: 5b15b02903652224f95743aa074c8a48, type: 2}
     dropChance: 50
+  AudioSourceItems: {fileID: 0}
+  ItemSFX: {fileID: 8300000, guid: b24c90df03b008f4c83c870540ddc89f, type: 3}
 --- !u!1 &1284090464786964097
 GameObject:
   m_ObjectHideFlags: 0
