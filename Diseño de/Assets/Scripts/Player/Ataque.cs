@@ -24,6 +24,9 @@ public class Ataque : MonoBehaviour
     public Transform BalaOrigen;
     public Transform CabezaRotacion;
     public float BalaSpeed = 10f;
+    public float _cooldownDisparo = 5f;
+    private bool puedeDisparar = true;
+    public AudioClip SonidoPistolaLista;
 
     void Awake()
     {
@@ -85,6 +88,9 @@ public class Ataque : MonoBehaviour
 
     void OnDisparo(InputAction.CallbackContext context)
     {
+        if (!puedeDisparar) return;
+        puedeDisparar = false;
+
         Pistola.SetActive(true);
         Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
@@ -108,6 +114,7 @@ public class Ataque : MonoBehaviour
         }
 
         DisableDisparoCoroutine = StartCoroutine(DisableDisparoCooldown());
+        StartCoroutine(CooldownDisparoCoroutine());
     }
 
     private IEnumerator DisableDisparoCooldown()
@@ -119,7 +126,17 @@ public class Ataque : MonoBehaviour
             Pistola.SetActive(false);
         }
     }
+    private IEnumerator CooldownDisparoCoroutine()
+{
+    yield return new WaitForSeconds(_cooldownDisparo);
 
+    puedeDisparar = true;
+
+    if (SonidoPistolaLista != null)
+    {
+        AudiosAtaques.PlayOneShot(SonidoPistolaLista); 
+    }
+}
     public void ActivarPistola()
     {
         Pistola.SetActive(true);

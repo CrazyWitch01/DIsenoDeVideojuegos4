@@ -595,7 +595,7 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: a3848e0de88eeff4fa7c937213a3f92d, type: 2}
   itemData: {fileID: 11400000, guid: 07fa4599392588741b069e9d1cdabc2b, type: 2}
   Invulnerable: 0
-  DuracionInvulnerabilidad: 2
+  DuracionInvulnerabilidad: 1
 --- !u!114 &4687313184317091530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +623,8 @@ MonoBehaviour:
   BalaOrigen: {fileID: 23466433498357975}
   CabezaRotacion: {fileID: 9201651439820548306}
   BalaSpeed: 12
+  _cooldownDisparo: 3
+  SonidoPistolaLista: {fileID: 8300000, guid: 626033d01edac0a4e91b88f380a4a840, type: 3}
 --- !u!114 &6886027797348753404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +649,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.479
   m_Pitch: 1
   Loop: 0
@@ -983,7 +985,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
