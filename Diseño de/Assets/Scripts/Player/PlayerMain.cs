@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,7 +31,10 @@ public class PlayerMain : MonoBehaviour
     public CameraEffects PostManager;
     [SerializeField] PlayerData playerData;
     [SerializeField] ItemData itemData;
-
+    public bool Invulnerable = false;
+    public float DuracionInvulnerabilidad = 1f;
+    private float tiempoDesdeUltimoDaño = 0f;
+    private bool regenerando = false;
     // Update is called once per frame
     void Start()
     {
@@ -101,7 +105,16 @@ public class PlayerMain : MonoBehaviour
 
     public void PerderVida()
     {
+        if (Invulnerable)
+        {
+            return;
+        }
+
+        Invulnerable = true;
+        StartCoroutine(Invulnerabilidad());
         //Resta vida al jugador
+        tiempoDesdeUltimoDaño = 0f; 
+        regenerando = false;
         playerData.RestarVidaJugador();
 
         //Activa el efecto de sangre xd
@@ -113,6 +126,31 @@ public class PlayerMain : MonoBehaviour
             //Destroy(this);
         }
     }
+
+    private IEnumerator Invulnerabilidad()
+    {
+        yield return new WaitForSeconds(DuracionInvulnerabilidad);
+        Invulnerable = false;
+
+    }
+
+    private IEnumerator RegenerarVida()
+    {
+        regenerando = true;
+        while (playerData.vidaPlayer < playerData.vidaMaxima)
+        {
+            playerData.vidaPlayer++;
+            yield return new WaitForSeconds(1f);
+
+            if(tiempoDesdeUltimoDaño<5f)
+            {
+                regenerando = false;
+                yield break;
+            }
+        }
+    }
+
+
     void Update()
     {
         if (dataPlayer != null)
@@ -130,6 +168,11 @@ public class PlayerMain : MonoBehaviour
                 _lastVel = dataPlayer.velPlayer;
                 _lastAtq = dataPlayer.atqPlayer;
                 _lastExp = dataPlayer.experienciaActual;
+            }
+            tiempoDesdeUltimoDaño += Time.deltaTime;
+            if (tiempoDesdeUltimoDaño >= 5f && !regenerando && playerData.vidaPlayer < playerData.vidaMaxima)
+            {
+                StartCoroutine(RegenerarVida());
             }
         }
     }
@@ -158,6 +201,10 @@ public class PlayerMain : MonoBehaviour
                 playerData.AumentarVelJugador();
                 PostManager.ActivarEfectoCura();
                 Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("DañoPlayer"))
+        {
+            PerderVida();
         }
     }
 }

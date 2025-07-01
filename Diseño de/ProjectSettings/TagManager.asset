@@ -15,6 +15,7 @@ TagManager:
   - Item2
   - BloodStain
   - VenenoStain
+  - "Da\xF1oPlayer"
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ MonoBehaviour:
   nombreItem: Jugador
   spritePlayer: {fileID: 0}
   prefab: {fileID: 5614776252855123503, guid: 3652aa28303a81648ac9a10f935718c0, type: 3}
-  vidaPlayer: 2
+  vidaPlayer: 6
   velPlayer: 4
   atqPlayer: 1
   experienciaActual: 0

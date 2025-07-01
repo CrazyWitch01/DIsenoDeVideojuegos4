@@ -594,6 +594,8 @@ MonoBehaviour:
   PostManager: {fileID: 0}
   playerData: {fileID: 11400000, guid: a3848e0de88eeff4fa7c937213a3f92d, type: 2}
   itemData: {fileID: 11400000, guid: 07fa4599392588741b069e9d1cdabc2b, type: 2}
+  Invulnerable: 0
+  DuracionInvulnerabilidad: 2
 --- !u!114 &4687313184317091530
 MonoBehaviour:
   m_ObjectHideFlags: 0
