@@ -16,6 +16,7 @@ TagManager:
   - BloodStain
   - VenenoStain
   - "Da\xF1oPlayer"
+  - Pared
   layers:
   - Default
   - TransparentFX

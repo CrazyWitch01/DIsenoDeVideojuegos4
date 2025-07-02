@@ -7,42 +7,34 @@ public class PlayerMain : MonoBehaviour
 {
     [Header("Movimiento")]
     public float velocidad = 5f;
-
     public PlayerData dataPlayer;
     public int vidaJugador;
     public float velJugador;
     public int atqJugador;
     public int experienciaJugador;
-    
+    public GameObject Capa;
+    public CameraEffects PostManager;
+    public bool Invulnerable = false;
+    public float DuracionInvulnerabilidad = 1f;
+
     private int _lastExp;
     private int _lastVida;
     private float _lastVel;
     private int _lastAtq;
-
-
-    public GameObject Capa;
-
     private Animator animatorCapa;
     private Rigidbody2D rb;
     private Vector2 inputMovimiento;
     private InputSystem_Actions input;
+    private float tiempoDesdeUltimoDaño = 0f;
+    private bool regenerando = false;
+    private bool envenenado = false;
 
     [SerializeField] AudioSource FuenteAudio;
     [SerializeField] AudioClip SonidoHurt;
     [SerializeField] AudioClip SonidoVeneno;
-    public CameraEffects PostManager;
     [SerializeField] PlayerData playerData;
     [SerializeField] ItemData itemData;
-    public bool Invulnerable = false;
-    public float DuracionInvulnerabilidad = 1f;
-    private float tiempoDesdeUltimoDaño = 0f;
-    private bool regenerando = false;
-    private bool envenenado = false;
-    // Update is called once per frame
-
-
-    //veneno
-    [SerializeField] private SpriteRenderer[] spritesVeneno;
+    /* Veneno */ [SerializeField] private SpriteRenderer[] spritesVeneno;
 
     void Start()
     {

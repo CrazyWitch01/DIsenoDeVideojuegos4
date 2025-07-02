@@ -9,30 +9,30 @@ public class BossData : ScriptableObject
     public int vidaJefe = 30; // Vida del jefe
     public int atqJefe = 1; // Ataque del jefe
 
-    /////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
 
     public void QuitarVidaJefe()
     {
         vidaJefe--;
-        Debug.Log("El jefe perdió 1 de vida");
+        //Debug.Log("El jefe perdió 1 de vida");
     }
 
     public void AumentoATQJefe()
     {
         atqJefe = 2;
-        Debug.Log("El jefe aumentó en 1 su ataque");
+        //Debug.Log("El jefe aumentó en 1 su ataque");
     }
 
     public void RestablecerATQJefe()
     {
         atqJefe = 1;
-        Debug.Log("El jefe restableció su ataque");
+        //Debug.Log("El jefe restableció su ataque");
     }
 
     public void RestablecerStatsJefe()
     {
         atqJefe = 1;
         vidaJefe = 30;
-        Debug.Log("Los datos del jefe se reiniciaron exitosamente");
+        //Debug.Log("Los datos del jefe se reiniciaron exitosamente");
     }
 }

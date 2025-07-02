@@ -17,8 +17,6 @@ public class DispararAlJugador : MonoBehaviour
 
     public Animator Animator;
 
-
-
     void Awake()
     {
         GameObject obj = GameObject.Find("PlayerHurtbox");
