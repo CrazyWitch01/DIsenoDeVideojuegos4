@@ -92,21 +92,29 @@ public class Ataque : MonoBehaviour
         puedeDisparar = false;
 
         Pistola.SetActive(true);
-        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-        mouseWorldPos.z = 0;
 
-        Vector2 direccion = (mouseWorldPos - BalaOrigen.position).normalized;
+        Vector2 direccion;
 
+        if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
+        {
+            float anguloZ = CabezaRotacion.eulerAngles.z + 90f;
+            float rad = anguloZ * Mathf.Deg2Rad;
+            direccion = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+        }
+        else
+        {
+            Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+            mouseWorldPos.z = 0;
+
+            direccion = (mouseWorldPos - BalaOrigen.position).normalized;
+        }
 
         Quaternion rotacion = Quaternion.Euler(0f, 0f, CabezaRotacion.eulerAngles.z);
         GameObject bala = Instantiate(BulletPlayerPrefab, BalaOrigen.position, rotacion);
 
         Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
-        rb.linearVelocity = direccion*BalaSpeed;
-
-
-
+        rb.linearVelocity = direccion * BalaSpeed;
 
         if (DisableDisparoCoroutine != null)
         {
