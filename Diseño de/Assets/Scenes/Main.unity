@@ -110130,10 +110130,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fuego
       objectReference: {fileID: 0}
-    - target: {fileID: 1863548459475576862, guid: 0a0af69585860434b92475ebd41a54a4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7421854825258121222, guid: 0a0af69585860434b92475ebd41a54a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.49712
