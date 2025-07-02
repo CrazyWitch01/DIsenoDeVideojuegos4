@@ -591,11 +591,17 @@ MonoBehaviour:
   atqJugador: 0
   experienciaJugador: 0
   Capa: {fileID: 6145813101242352928}
+  FuenteAudio: {fileID: 7714998587521488329}
+  SonidoHurt: {fileID: 8300000, guid: 19df4c439fe08194dabc1e339fb5a67c, type: 3}
+  SonidoVeneno: {fileID: 8300000, guid: 80ec9a8146dd5a9479043c281f66427d, type: 3}
   PostManager: {fileID: 0}
   playerData: {fileID: 11400000, guid: a3848e0de88eeff4fa7c937213a3f92d, type: 2}
   itemData: {fileID: 11400000, guid: 07fa4599392588741b069e9d1cdabc2b, type: 2}
   Invulnerable: 0
   DuracionInvulnerabilidad: 1
+  spritesVeneno:
+  - {fileID: 3736446108312715694}
+  - {fileID: 8642158484191769355}
 --- !u!114 &4687313184317091530
 MonoBehaviour:
   m_ObjectHideFlags: 0

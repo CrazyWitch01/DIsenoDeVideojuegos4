@@ -27,7 +27,9 @@ public class PlayerMain : MonoBehaviour
     private Vector2 inputMovimiento;
     private InputSystem_Actions input;
 
-
+    [SerializeField] AudioSource FuenteAudio;
+    [SerializeField] AudioClip SonidoHurt;
+    [SerializeField] AudioClip SonidoVeneno;
     public CameraEffects PostManager;
     [SerializeField] PlayerData playerData;
     [SerializeField] ItemData itemData;
@@ -35,7 +37,13 @@ public class PlayerMain : MonoBehaviour
     public float DuracionInvulnerabilidad = 1f;
     private float tiempoDesdeUltimoDaño = 0f;
     private bool regenerando = false;
+    private bool envenenado = false;
     // Update is called once per frame
+
+
+    //veneno
+    [SerializeField] private SpriteRenderer[] spritesVeneno;
+
     void Start()
     {
         if (dataPlayer != null)
@@ -110,7 +118,9 @@ public class PlayerMain : MonoBehaviour
             return;
         }
 
+        
         Invulnerable = true;
+        FuenteAudio.PlayOneShot(SonidoHurt);
         StartCoroutine(Invulnerabilidad());
         //Resta vida al jugador
         tiempoDesdeUltimoDaño = 0f; 
@@ -196,15 +206,80 @@ public class PlayerMain : MonoBehaviour
                playerData.AumentarVidaJugador();
                PostManager.ActivarEfectoCura();
                 Destroy(collision.gameObject);
-        } else if (collision.CompareTag("Item2"))
+        } 
+        else if (collision.CompareTag("Item2"))
         {
                 playerData.AumentarVelJugador();
                 PostManager.ActivarEfectoCura();
                 Destroy(collision.gameObject);
         }
+       // else if (collision.CompareTag("DañoPlayer"))
+       // {
+            //PerderVida();
+        //}
+        else if (collision.CompareTag("VenenoStain") && !envenenado)
+        {
+            FuenteAudio.PlayOneShot(SonidoVeneno);
+            StartCoroutine(EfectoVeneno());
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (collision.CompareTag("DañoPlayer"))
         {
             PerderVida();
+        }
+    }
+    private IEnumerator EfectoVeneno()
+    {
+        envenenado = true;
+
+        int ticks = 0;
+        float parpadeoRate = 0.2f;
+        float totalTime = 3f;
+        float timer = 0f;
+        bool verde = false;
+
+        // Lanzar en paralelo dos rutinas: parpadeo y daño
+        StartCoroutine(ParpadeoVeneno());
+
+        while (ticks < 3)
+        {
+            if (playerData.vidaPlayer > 1)
+            {
+                PerderVida();
+            }
+
+            ticks++;
+            yield return new WaitForSeconds(1f);
+        }
+
+        envenenado = false;
+    }
+    private IEnumerator ParpadeoVeneno()
+    {
+        float tiempo = 0f;
+        bool verde = false;
+
+        while (tiempo < 3f)
+        {
+            Color color = verde ? Color.white : Color.green;
+            foreach (var sr in spritesVeneno)
+            {
+                if (sr != null)
+                    sr.color = color;
+            }
+            verde = !verde;
+
+            tiempo += 0.2f;
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        foreach (var sr in spritesVeneno)
+        {
+            if (sr != null)
+                sr.color = Color.white;
         }
     }
 }
