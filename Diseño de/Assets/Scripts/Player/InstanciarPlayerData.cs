@@ -2,25 +2,31 @@ using UnityEngine;
 
 public class InstanciarPlayerData : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Transform[] spawnPoints; // Asignar manualmente en Inspector
     public PlayerData data;
+    public string camaraTag = "CineMachineMainCamera";
 
     void Awake()
     {
-        if (data.prefab != null)
-        {
-            GameObject obj = Instantiate(data.prefab, transform.position, Quaternion.identity);
+        int spawnIndex = PlayerPrefs.GetInt("SpawnSeleccionado", 0);
+        spawnIndex = Mathf.Clamp(spawnIndex, 0, spawnPoints.Length - 1);
 
-            // Aplicar los datos del ScriptableObject al PlayerMain del prefab
-            PlayerMain pm = obj.GetComponent<PlayerMain>();
-            if (pm != null)
-            {
-                pm.AplicarDatos(data);
-            }
-            else
-            {
-                Debug.LogWarning("El prefab instanciado no tiene PlayerMain");
-            }
+        Transform spawnTransform = spawnPoints[spawnIndex];
+
+        // Instanciar jugador
+        GameObject player = Instantiate(data.prefab, spawnTransform.position, Quaternion.identity);
+        PlayerMain pm = player.GetComponent<PlayerMain>();
+        if (pm != null)
+        {
+            pm.AplicarDatos(data);
+        }
+
+        // Mover cámara
+        GameObject cam = GameObject.FindGameObjectWithTag(camaraTag);
+        if (cam != null)
+        {
+            Vector3 camPos = new Vector3(spawnTransform.position.x, spawnTransform.position.y, cam.transform.position.z);
+            cam.transform.position = camPos;
         }
     }
 }

@@ -17,6 +17,7 @@ TagManager:
   - VenenoStain
   - "Da\xF1oPlayer"
   - Pared
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

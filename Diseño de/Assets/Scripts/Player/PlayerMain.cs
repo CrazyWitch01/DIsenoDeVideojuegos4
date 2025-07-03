@@ -30,11 +30,17 @@ public class PlayerMain : MonoBehaviour
     private bool envenenado = false;
 
     [SerializeField] AudioSource FuenteAudio;
+    [SerializeField] AudioSource PasosSource;
+    [SerializeField] AudioClip PasosAudio;
     [SerializeField] AudioClip SonidoHurt;
     [SerializeField] AudioClip SonidoVeneno;
     [SerializeField] PlayerData playerData;
     [SerializeField] ItemData itemData;
     /* Veneno */ [SerializeField] private SpriteRenderer[] spritesVeneno;
+    private bool Caminando = false;
+    private Coroutine pasosCoroutine;
+    public float intervaloPasos = 0.4f;
+
 
     void Start()
     {
@@ -100,9 +106,34 @@ public class PlayerMain : MonoBehaviour
         }
 
         bool IsMoving = inputMovimiento != Vector2.zero;
-        animatorCapa.SetBool("IsMoving", IsMoving);
-    }
 
+        if (IsMoving && !Caminando)
+        {
+            Caminando = true;
+            pasosCoroutine = StartCoroutine(ReproducirPasos());
+        }
+        else if (!IsMoving && Caminando)
+        {
+            Caminando = false;
+            if (pasosCoroutine != null)
+                StopCoroutine(pasosCoroutine);
+        }
+
+        animatorCapa.SetBool("IsMoving", IsMoving);
+
+
+    }
+    private IEnumerator ReproducirPasos()
+    {
+        while (true)
+        {
+            if (PasosSource != null && PasosAudio != null)
+            {
+                PasosSource.PlayOneShot(PasosAudio);
+            }
+            yield return new WaitForSeconds(intervaloPasos);
+        }
+    }
     public void PerderVida()
     {
         if (Invulnerable)

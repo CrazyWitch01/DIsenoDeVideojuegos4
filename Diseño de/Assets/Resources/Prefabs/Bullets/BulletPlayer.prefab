@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Duracion: 1.5
+  BalaImpactoSonido: {fileID: 8300000, guid: 58ecf7242fc383a48a080864a26463fe, type: 3}
 --- !u!1 &2055467905409135660
 GameObject:
   m_ObjectHideFlags: 0
