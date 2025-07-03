@@ -16,6 +16,11 @@ public class PlayerMain : MonoBehaviour
     public CameraEffects PostManager;
     public bool Invulnerable = false;
     public float DuracionInvulnerabilidad = 1f;
+    public GameObject PlayerController;
+    public GameObject UILose;
+    private AudioSource Musica;
+    public AudioClip ruidoBlanco;
+    public GameObject UIPlayer;
 
     private int _lastExp;
     private int _lastVida;
@@ -156,7 +161,34 @@ public class PlayerMain : MonoBehaviour
         //Verifica la vida para destruir al jugador en caso llegue a 0
         if (playerData.vidaPlayer <= 0)
         {
-            //Destroy(this);
+            /*GameObject mainCameraObj = GameObject.Find("MainCamera");
+            AudioListener listener = mainCameraObj.GetComponent<AudioListener>();
+            mainCameraObj.enabled = false;
+            */
+            GameObject musicaObj = GameObject.Find("Musica");
+            AudioSource Musica = musicaObj != null ? musicaObj.GetComponent<AudioSource>() : null;
+            Musica = GameObject.Find("Musica")?.GetComponent<AudioSource>();
+
+            Musica.Stop();
+            Musica.PlayOneShot(ruidoBlanco);
+
+            Transform[] allChildren = GameObject.Find("UIs").GetComponentsInChildren<Transform>(true); // true = incluye inactivos
+            foreach (Transform t in allChildren)
+            {
+                if (t.name == "Lose")
+                {
+                    UILose = t.gameObject;
+                    break;
+                }
+            }
+            UILose.SetActive(true);
+
+            GameObject UIPlayer = GameObject.Find("UIPlayer");
+            UIPlayer.SetActive(false);
+
+            
+            Destroy(PlayerController);
+            
         }
     }
 

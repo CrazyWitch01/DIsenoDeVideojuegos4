@@ -595,6 +595,10 @@ MonoBehaviour:
   PostManager: {fileID: 0}
   Invulnerable: 0
   DuracionInvulnerabilidad: 1
+  PlayerController: {fileID: 5614776252855123503}
+  UILose: {fileID: 0}
+  ruidoBlanco: {fileID: 8300000, guid: 4215c5e138b3b10478bcac6ff1e2cf59, type: 3}
+  UIPlayer: {fileID: 0}
   FuenteAudio: {fileID: 7714998587521488329}
   PasosSource: {fileID: 7607344082878228761}
   PasosAudio: {fileID: 8300000, guid: 003ba7bcee96e1448a39993b9e4e0107, type: 3}
