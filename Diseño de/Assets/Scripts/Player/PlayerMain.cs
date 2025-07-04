@@ -21,6 +21,7 @@ public class PlayerMain : MonoBehaviour
     private AudioSource Musica;
     public AudioClip ruidoBlanco;
     public GameObject UIPlayer;
+    public GameObject MenuPausa;
 
     private int _lastExp;
     private int _lastVida;
@@ -68,6 +69,16 @@ public class PlayerMain : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         input = new InputSystem_Actions();
         animatorCapa = Capa.GetComponent<Animator>();
+
+        Transform[] allChildren = GameObject.Find("UIs").GetComponentsInChildren<Transform>(true); // true = incluye inactivos
+        foreach (Transform t in allChildren)
+        {
+            if (t.name == "Pause")
+            {
+                MenuPausa = t.gameObject;
+                break;
+            }
+        }
     }
 
     void OnEnable()
@@ -75,14 +86,25 @@ public class PlayerMain : MonoBehaviour
         input.NewPlayer.Enable();
         input.NewPlayer.Move.performed += OnMove;
         input.NewPlayer.Move.canceled += OnMove;
+        input.NewPlayer.Pausa.performed += OnPausa;
     }
     void OnDisable()
     {
+        input.NewPlayer.Pausa.performed -= OnPausa;
         input.NewPlayer.Move.performed -= OnMove;
         input.NewPlayer.Move.canceled -= OnMove;
         input.NewPlayer.Disable();
     }
 
+    private void OnPausa(InputAction.CallbackContext context)
+    {
+        if (MenuPausa != null)
+        {
+            bool isActive = MenuPausa.activeSelf;
+            MenuPausa.SetActive(!isActive); 
+            Time.timeScale = isActive ? 1f : 0f; 
+        }
+    }
     void OnMove(InputAction.CallbackContext context)
     {
         inputMovimiento = context.ReadValue<Vector2>().normalized;
@@ -182,7 +204,7 @@ public class PlayerMain : MonoBehaviour
                 }
             }
             UILose.SetActive(true);
-
+            
             GameObject UIPlayer = GameObject.Find("UIPlayer");
             UIPlayer.SetActive(false);
 
@@ -240,6 +262,11 @@ public class PlayerMain : MonoBehaviour
                 StartCoroutine(RegenerarVida());
             }
         }
+
+        //GameObject MenuPausa = GameObject.Find("Pause");
+
+
+        //MenuPausa.SetActive(true);
     }
 
     public void AplicarDatos(PlayerData data)

@@ -6,7 +6,7 @@ public class BossData : ScriptableObject
     public string nombreJefe = "Demon";
     public Sprite spriteBoss; // Sprite(?)
     public GameObject prefab; // Prefab del jefe
-    public int vidaJefe = 30; // Vida del jefe
+    public int vidaJefe = 20; // Vida del jefe
     public int atqJefe = 1; // Ataque del jefe
 
     ///////////////////////////////////////////////////////////////////
@@ -32,7 +32,7 @@ public class BossData : ScriptableObject
     public void RestablecerStatsJefe()
     {
         atqJefe = 1;
-        vidaJefe = 30;
+        vidaJefe = 20;
         //Debug.Log("Los datos del jefe se reiniciaron exitosamente");
     }
 }
