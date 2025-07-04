@@ -9,6 +9,8 @@ public class JefeCambioCuarto : MonoBehaviour
     [SerializeField] private GameObject enemiesSpawners;
     private List<GameObject> puertas = new List<GameObject>();
     public GameObject _cinemachineCamera;
+    public AudioSource MusicaSource;
+    public AudioClip AudioMusicaBoss;
 
     private void Awake()
     {
@@ -39,6 +41,8 @@ public class JefeCambioCuarto : MonoBehaviour
             if (camObj != null)
             {
                 StartCoroutine(MoveCamera(camObj.transform));
+                MusicaSource.clip = AudioMusicaBoss;
+                MusicaSource.Play();
 
 
                 if (enemiesSpawners != null)
